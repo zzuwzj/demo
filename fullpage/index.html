@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>全屏滚动网站 - using fullpage.js</title>
+    <link href="http://cdn.bootcss.com/fullPage.js/2.7.6/jquery.fullPage.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/fullPage.js/2.7.6/jquery.fullPage.min.js"></script>
+    <script src="http://cdn.bootcss.com/fullPage.js/2.7.6/vendors/jquery.easings.min.js"></script>
+    <script src="http://cdn.bootcss.com/fullPage.js/2.7.6/vendors/jquery.slimscroll.min.js"></script>
+    <style type="text/css" media="screen">
+      .section, .slide {
+        color: white;
+        text-align: center;
+      }
+    </style>
+</head>
+
+<body>
+    <div id="menu"></div>
+    <div id="main">
+        <div class="section">
+            <h3>First Screen</h3>
+        </div>
+        <div class="section">
+            <h3>Second Screen</h3>
+        </div>
+        <div class="section">
+            <div class="slide"> Slide 1 </div>
+            <div class="slide"> Slide 2 </div>
+            <div class="slide"> Slide 3 </div>
+            <div class="slide"> Slide 4 </div>
+        </div>
+        <div class="section">
+            <h3>Fourth Screen</h3>
+        </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        $('#main').fullpage({
+            //Navigation
+            menu: '#menu',
+            lockAnchors: false,
+            anchors: ['firstPage', 'secondPage'],
+            navigation: true,
+            navigationPosition: 'right',
+            navigationTooltips: ['First Screen', 'Second Screen', 'Third Screen', 'Fourth Screen'],
+            showActiveTooltip: false,
+            slidesNavigation: true,
+            slidesNavPosition: 'bottom',
+
+            //Scrolling
+            css3: true,
+            scrollingSpeed: 700,
+            autoScrolling: true,
+            fitToSection: true,
+            fitToSectionDelay: 1000,
+            scrollBar: false,
+            easing: 'easeInOutCubic',
+            easingcss3: 'ease',
+            loopBottom: false,
+            loopTop: false,
+            loopHorizontal: true,
+            continuousVertical: false,
+            normalScrollElements: '#element1, .element2',
+            scrollOverflow: false,
+            touchSensitivity: 15,
+            normalScrollElementTouchThreshold: 5,
+
+            //Accessibility
+            keyboardScrolling: true,
+            animateAnchor: true,
+            recordHistory: true,
+
+            //Design
+            controlArrows: true,
+            verticalCentered: true,
+            resize: false,
+            sectionsColor: ['#123', '#456', '#789', '#abc'],
+            paddingTop: '3em',
+            paddingBottom: '10px',
+            fixedElements: '#header, .footer',
+            responsiveWidth: 0,
+            responsiveHeight: 0,
+
+            //Custom selectors
+            sectionSelector: '.section',
+            slideSelector: '.slide',
+
+            //events
+            onLeave: function(index, nextIndex, direction) {},
+            afterLoad: function(anchorLink, index) {},
+            afterRender: function() {},
+            afterResize: function() {},
+            afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {},
+            onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex) {}
+        });
+    });
+    </script>
+</body>
+
+</html>
