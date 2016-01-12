@@ -15,7 +15,18 @@ body, h1, h2, h3, h4, h5, h6 {
     background-color: #abc;
 }
 .stage .anim {
-    height: 50%;
+    min-height: 300px;
+}
+.anim .box {
+    display: inline-block;
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    margin: 100px 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #FC5258;
 }
 .action {
     padding: 50px 100px;
