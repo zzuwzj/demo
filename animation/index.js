@@ -20,7 +20,7 @@ $('.btn.native').mousemove(funcNative);
 var funcJQuery = function (event) {
   /* Act on the event */
   var left = event.pageX;
-  var top = $('.action').offset().top;
+  var top = $('.action').offset().top - 160;
   $('.code').css({
     'left': left + 'px',
     'top': top
@@ -88,7 +88,8 @@ $('#box1').click(function (event) {
 
   var goAnim = function () {
     $('#box2').animate({
-        'left': toValue
+        'left': toValue,
+        'border-radius': 50
       },
       2000,
       'easeInOutQuart',
@@ -101,7 +102,8 @@ $('#box1').click(function (event) {
 
   var backAnim = function () {
     $('#box2').animate({
-        'left': 0
+        'left': 0,
+        'border-radius': 0
       },
       2000,
       'easeInOutQuart',
