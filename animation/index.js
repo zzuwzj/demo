@@ -4,7 +4,7 @@ $('.btn').mouseout(function (event) {
 });
 var funcNative = function (event) {
   /* Act on the event */
-  var left = event.pageX;
+  var left = event.pageX - 200;
   var top = $('.action').offset().top - 290;
   $('.code').css({
     'left': left + 'px',
@@ -19,7 +19,7 @@ $('.btn.native').mousemove(funcNative);
 
 var funcJQuery = function (event) {
   /* Act on the event */
-  var left = event.pageX;
+  var left = event.pageX - 200;
   var top = $('.action').offset().top - 160;
   $('.code').css({
     'left': left + 'px',
