@@ -5,7 +5,7 @@ $('.btn').mouseout(function (event) {
 var funcNative = function (event) {
   /* Act on the event */
   var left = event.pageX;
-  var top = $('.action').offset().top - 260;
+  var top = $('.action').offset().top - 290;
   $('.code').css({
     'left': left + 'px',
     'top': top

@@ -29,7 +29,7 @@ body, h1, h2, h3, h4, h5, h6 {
     background-color: #FC5258;
 }
 .action {
-    padding: 50px 100px;
+    padding: 50px 130px;
     display: -webkit-flex; /* Safari */
     display: flex;
     justify-content: space-around;
