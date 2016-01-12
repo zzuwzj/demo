@@ -60,7 +60,9 @@
                 type: 'GET'
             })
             .done(function(data) {
-                $('.code .code1').append(data);
+                $('.code .code1').html(data);
+            }).fail(function(err){
+                console.log('failed:'+err);
             });
 
         $.ajax({
@@ -68,9 +70,10 @@
                 type: 'GET'
             })
             .done(function(data) {
-                $('.code .code2').append(data);
+                $('.code .code2').html(data);
+            }).fail(function(err){
+                console.log('failed:'+err);
             });
-
     })();
     </script>
 </body>
