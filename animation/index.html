@@ -1,10 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Animation Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../js/jquery.min.js"></script>
 </head>
+
 <body>
-    Animation Demo
+    <div class="desc">
+        <h2>Animation Demo</h2></div>
+    <div class="stage">
+        <div class="anim"></div>
+        <div class="anim"></div>
+    </div>
+    <div class="action">
+        <div class="btn native">Source code - Native JS</div>
+        <div class="btn jquery">Source code - JQuery API</div>
+    </div>
+    <div class="code"></div>
+    <script>
+    $('.btn').mouseout(function(event) {
+        /* Act on the event */
+        $('.code').hide();
+    });
+    var funcNative = function(event) {
+        /* Act on the event */
+        var left = event.pageX;
+        var top = $('.action').offset().top - 260;
+        $('.code').css({
+            'left': left + 'px',
+            'top': top
+        });
+        $('.code').show();
+        $('.code .code1').show();
+        $('.code .code2').hide();
+    };
+    $('.btn.native').mouseover(funcNative);
+    $('.btn.native').mousemove(funcNative);
+
+    var funcJQuery = function(event) {
+        /* Act on the event */
+        var left = event.pageX;
+        var top = $('.action').offset().top;
+        $('.code').css({
+            'left': left + 'px',
+            'top': top
+        });
+        $('.code').show();
+        $('.code .code2').show();
+        $('.code .code1').hide();
+    };
+    $('.btn.jquery').mouseover(funcJQuery);
+    $('.btn.jquery').mousemove(funcJQuery);
+    (function() {
+        $.ajax({
+                url: 'code1.html',
+                type: 'GET'
+            })
+            .done(function(data) {
+                $('.code .code1').append(data);
+            });
+
+        $.ajax({
+                url: 'code2.html',
+                type: 'GET'
+            })
+            .done(function(data) {
+                $('.code .code2').append(data);
+            });
+
+    })();
+    </script>
 </body>
+
 </html>
