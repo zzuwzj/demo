@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Plugin demo</title>
+    <style>
+    #main {
+        height: 500px;
+        width: 800px;
+        background-color: #0ad;
+    }
+    
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: #e56;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>jQuery Plugin demo</h1>
+    <p>Center (Horizontal and Vertical) child elements which has class 'centerMe'</p>
+    <h3><code>$('#main').centerMe();</code></h3>
+    <div id="main">
+        <div class="box centerMe"></div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="js/jquery-center-me.js"></script>
+    <script>
+    $(function() {
+        $('#main').centerMe();
+    });
+    </script>
+</body>
+
+</html>
