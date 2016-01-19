@@ -4,41 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Google Icons Demo</title>
-    <style>
-    body {
-        background-color: #998;
-    }
-    
-    section {
-        height: 200px;
-        background-color: #efe;
-    }
-    
-    .btn {
-        width: 120px;
-        height: 60px;
-        margin: 20px;
-    }
-    </style>
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <link rel="stylesheet" href="google-icons.css">
+    <link rel="stylesheet" href="common.css">
 </head>
 
 <body>
-    <h1>Using Google Icons in your web page</h1>
+    <h1>Use Google Icons in your web page</h1>
     <section>
         <h3>Use directly</h3>
-        <i class="material-icons">face</i>
+        <i class="material-icons md-48">beenhere</i>
+        <i class="material-icons md-48">laptop</i>
+        <i class="material-icons md-48">keyboard_voice</i>
+        <i class="material-icons md-48">toys</i>
+        <i class="material-icons md-48">add_a_photo</i>
+        <i class="material-icons md-48">local_grocery_store</i>
     </section>
     <section>
         <h3>Button中使用</h3>
-        <input type="button" class="btn">
-        <input type="button" class="btn">
-        <input type="button" class="btn">
+        <div class="btn"><i class="material-icons md-48">face</i></div>
     </section>
     <section>
         <h3>Toolbar中使用</h3>
         <div class="toolbar">
+            <div class="tool-btn"><i class="material-icons">cached</i></div>
+            <div class="tool-btn"><i class="material-icons">favorite</i></div>
+            <div class="tool-btn"><i class="material-icons">list</i></div>
+            <div class="tool-btn"><i class="material-icons">play_circle_filled</i></div>
+            <div class="tool-btn"><i class="material-icons">border_color</i></div>
         </div>
     </section>
 </body>

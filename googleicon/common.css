@@ -1,0 +1,81 @@
+body {
+    background-color: #998;
+}
+
+h1 {
+    padding-left: 20px;
+}
+
+h1, h3 {
+    color: #369;
+}
+
+section {
+    height: 160px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #efe;
+}
+
+section i {
+    color: gray;
+}
+
+.btn {
+    display: inline-block;
+    width: 130px;
+    height: 60px;
+    margin: 10px;
+    line-height: 65px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    color: #fff;
+    background-color: #5bc0de;
+    border: 1px solid #46b8da;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn i {
+    padding-top: 6px;
+}
+
+.btn:hover {
+    background-color: #456abc;
+    border: 1px solid #5bc0de;
+}
+
+.btn:active {
+    background-color: #123abc;
+    border: 1px solid #5bc0de;
+}
+
+.toolbar {
+    display: inline-block;
+    height: 50px;
+    margin: 10px;
+    border: 2px solid #888999;
+}
+
+.toolbar .tool-btn {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    margin: 0;
+    background-color: #5ab123;
+}
+
+.tool-btn:hover {
+    background-color: #456;
+}
+
+.tool-btn:active {
+    background-color: #123;
+}
+
+.tool-btn i {
+    font-size: 28px;
+    margin: 11px;
+    color: #cde;
+}

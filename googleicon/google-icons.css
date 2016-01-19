@@ -2,9 +2,7 @@
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src: local('Material Icons'),
-       local('MaterialIcons-Regular'),
-       url(http://zzuwzj.github.io/demo/googleicon/google-icons.woff2) format('woff2');
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url(http://zzuwzj.github.io/demo/googleicon/google-fonts.woff2) format('woff2');
 }
 
 .material-icons {
@@ -30,4 +28,20 @@
     -moz-osx-font-smoothing: grayscale;
     /* Support for IE. */
     font-feature-settings: 'liga';
+}
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-24 {
+    font-size: 24px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
 }
