@@ -4,7 +4,7 @@
 function FiboN(n) {
   var arr = [];
   for (var i = 0; i < n; i++) {
-    arr[i] = getFiboNumX(i);
+    arr[i] = getFiboNumX(i + 1);
   }
   console.log(arr + '');
 }
