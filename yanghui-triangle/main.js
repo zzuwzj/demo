@@ -1,9 +1,9 @@
 // output pascal triangle with specified layers
 function YHTriangle(n) {
-    for (var i = 1; i <= n; i++) {
-        var arrI = YHTriangleNLayer(i);
-        console.log(arrI);
-    }
+  for (var i = 1; i <= n; i++) {
+    var arrI = YHTriangleNLayer(i);
+    console.log(arrI + '');
+  }
 }
 // output the n-th layer of pascal's triangle
 function YHTriangleNLayer(n) {
