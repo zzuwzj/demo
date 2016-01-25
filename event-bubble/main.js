@@ -29,11 +29,15 @@ var c2 = document.getElementsByClassName('c2')[0];
 var c3 = document.getElementsByClassName('c3')[0];
 var c4 = document.getElementsByClassName('c4')[0];
 
+var bc1 = 'red';
+var bc2 = 'green';
+var bc3 = 'blue';
+var bc4 = 'yellow';
+
 c1.addEventListener('click', function (evt) {
   evt.stopPropagation();
   showResult('bubble phase on c1');
   setTimeout(function () {
-    var bc = c1.style.backgroundColor;
     c1.style.backgroundColor = color;
     setTimeout(function () {
       c1.style.backgroundColor = bc;
@@ -45,8 +49,6 @@ c2.addEventListener('click', function (evt) {
   evt.stopPropagation();
   showResult('bubble phase on c2');
   setTimeout(function () {
-    var bc1 = c1.style.backgroundColor;
-    var bc2 = c2.style.backgroundColor;
     c1.style.backgroundColor = color;
     setTimeout(function () {
       c1.style.backgroundColor = bc1;
@@ -66,9 +68,6 @@ c3.addEventListener('click', function (evt) {
   evt.stopPropagation();
   showResult('bubble phase on c3');
   setTimeout(function () {
-    var bc1 = c1.style.backgroundColor;
-    var bc2 = c2.style.backgroundColor;
-    var bc3 = c3.style.backgroundColor;
     c1.style.backgroundColor = color;
     setTimeout(function () {
       c1.style.backgroundColor = bc1;
@@ -92,41 +91,106 @@ c3.addEventListener('click', function (evt) {
   }, time);
 });
 
-c4.addEventListener('click', function (evt) {
+// c4.addEventListener('click', function (evt) {
+//   evt.stopPropagation();
+//   showResult('bubble phase on c4');
+//   setTimeout(function () {
+//     c1.style.backgroundColor = color;
+//     setTimeout(function () {
+//       c1.style.backgroundColor = bc1;
+//       c2.style.backgroundColor = color;
+//       setTimeout(function () {
+//         c2.style.backgroundColor = bc2;
+//         c3.style.backgroundColor = color;
+//         setTimeout(function () {
+//           c3.style.backgroundColor = bc3;
+//           c4.style.backgroundColor = color;
+//           setTimeout(function () {
+//             c4.style.backgroundColor = bc4;
+//             c3.style.backgroundColor = color;
+//             setTimeout(function () {
+//               c3.style.backgroundColor = bc3;
+//               c2.style.backgroundColor = color;
+//               setTimeout(function () {
+//                 c2.style.backgroundColor = bc2;
+//                 c1.style.backgroundColor = color;
+//                 setTimeout(function () {
+//                   c1.style.backgroundColor = bc1;
+//                 }, time);
+//               }, time);
+//             }, time);
+//           }, time);
+//         }, time);
+//       }, time);
+//     }, time);
+//   }, time);
+// });
+
+// use jQuery animation
+$(c4).on('click', function (evt) {
   evt.stopPropagation();
   showResult('bubble phase on c4');
-  setTimeout(function () {
-    var bc1 = c1.style.backgroundColor;
-    var bc2 = c2.style.backgroundColor;
-    var bc3 = c3.style.backgroundColor;
-    var bc4 = c4.style.backgroundColor;
-    c1.style.backgroundColor = color;
-    setTimeout(function () {
-      c1.style.backgroundColor = bc1;
-      c2.style.backgroundColor = color;
-      setTimeout(function () {
-        c2.style.backgroundColor = bc2;
-        c3.style.backgroundColor = color;
-        setTimeout(function () {
-          c3.style.backgroundColor = bc3;
-          c4.style.backgroundColor = color;
-          setTimeout(function () {
-            c4.style.backgroundColor = bc4;
-            c3.style.backgroundColor = color;
-            setTimeout(function () {
-              c3.style.backgroundColor = bc3;
-              c2.style.backgroundColor = color;
-              setTimeout(function () {
-                c2.style.backgroundColor = bc2;
-                c1.style.backgroundColor = color;
-                setTimeout(function () {
-                  c1.style.backgroundColor = bc1;
-                }, time);
-              }, time);
-            }, time);
-          }, time);
-        }, time);
-      }, time);
-    }, time);
-  }, time);
+  $(c1).animate({
+      'background-color': color
+    },
+    time,
+    function () {
+      /* stuff to do after animation is complete */
+      changeColor(c1, bc1);
+      $(c2).animate({
+          'background-color': color
+        },
+        time,
+        function () {
+          /* stuff to do after animation is complete */
+          changeColor(c2, bc2);
+          $(c3).animate({
+              'background-color': color
+            },
+            time,
+            function () {
+              /* stuff to do after animation is complete */
+              changeColor(c3, bc3);
+              $(c4).animate({
+                  'background-color': color
+                },
+                time,
+                function () {
+                  /* stuff to do after animation is complete */
+                  changeColor(c4, bc4);
+                  $(c3).animate({
+                      'background-color': color
+                    },
+                    time,
+                    function () {
+                      /* stuff to do after animation is complete */
+                      changeColor(c3, bc3);
+                      $(c2).animate({
+                          'background-color': color
+                        },
+                        time,
+                        function () {
+                          /* stuff to do after animation is complete */
+                          changeColor(c2, bc2);
+                          $(c1).animate({
+                              'background-color': color
+                            },
+                            time,
+                            function () {
+                              /* stuff to do after animation is complete */
+                              changeColor(c1, bc1);
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
 });
+
+function changeColor(elm, clr) {
+  $(elm).animate({
+      'background-color': clr
+    },
+    time);
+}
