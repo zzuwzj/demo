@@ -3,13 +3,13 @@ c1.addEventListener(
   'click',
   function (evt) {
     if (evt.target.className == "box c4") {
-      alert('bubble c4');
+      showResult('bubble phase on c4');
     } else if (evt.target.className == "box c3") {
-      alert('bubble c3');
+      showResult('bubble phase on c3');
     } else if (evt.target.className == "box c2") {
-      alert('bubble c2');
+      showResult('bubble phase on c2');
     } else if (evt.target.className == "box c1") {
-      alert('bubble c1');
+      showResult('bubble phase on c1');
     }
     console.log(evt);
   });
@@ -18,13 +18,19 @@ c1.addEventListener(
   'click',
   function (evt) {
     if (evt.target.className == "box c4") {
-      alert('capture c4');
+      showResult('capture phase on c4');
     } else if (evt.target.className == "box c3") {
-      alert('capture c3');
+      showResult('capture phase on c3');
     } else if (evt.target.className == "box c2") {
-      alert('capture c2');
+      showResult('capture phase on c2');
     } else if (evt.target.className == "box c1") {
-      alert('capture c1');
+      showResult('capture phase on c1');
     }
     console.log(evt);
-  },true);
+  }, true);
+
+function showResult(txt) {
+  var rst = document.getElementById('result');
+  rst.innerText += txt;
+  rst.innerHTML += '<br />';
+}
