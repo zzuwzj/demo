@@ -1,19 +1,6 @@
 var c1 = document.getElementsByClassName('c1')[0];
-c1.addEventListener(
-  'click',
-  function (evt) {
-    if (evt.target.className == "box c4") {
-      showResult('bubble phase on c4');
-    } else if (evt.target.className == "box c3") {
-      showResult('bubble phase on c3');
-    } else if (evt.target.className == "box c2") {
-      showResult('bubble phase on c2');
-    } else if (evt.target.className == "box c1") {
-      showResult('bubble phase on c1');
-    }
-    console.log(evt);
-  });
 
+// 最外层加click事件，在capture阶段，第三个参数用true
 c1.addEventListener(
   'click',
   function (evt) {
@@ -34,3 +21,112 @@ function showResult(txt) {
   rst.innerText += txt;
   rst.innerHTML += '<br />';
 }
+
+// Add 变色效果, 在bubble阶段，第三个参数用默认的false
+var time = 700;
+var color = 'white';
+var c2 = document.getElementsByClassName('c2')[0];
+var c3 = document.getElementsByClassName('c3')[0];
+var c4 = document.getElementsByClassName('c4')[0];
+
+c1.addEventListener('click', function (evt) {
+  evt.stopPropagation();
+  showResult('bubble phase on c1');
+  setTimeout(function () {
+    var bc = c1.style.backgroundColor;
+    c1.style.backgroundColor = color;
+    setTimeout(function () {
+      c1.style.backgroundColor = bc;
+    }, time);
+  }, time);
+});
+
+c2.addEventListener('click', function (evt) {
+  evt.stopPropagation();
+  showResult('bubble phase on c2');
+  setTimeout(function () {
+    var bc1 = c1.style.backgroundColor;
+    var bc2 = c2.style.backgroundColor;
+    c1.style.backgroundColor = color;
+    setTimeout(function () {
+      c1.style.backgroundColor = bc1;
+      c2.style.backgroundColor = color;
+      setTimeout(function () {
+        c2.style.backgroundColor = bc2;
+        c1.style.backgroundColor = color;
+        setTimeout(function () {
+          c1.style.backgroundColor = bc1;
+        }, time);
+      }, time);
+    }, time);
+  }, time);
+});
+
+c3.addEventListener('click', function (evt) {
+  evt.stopPropagation();
+  showResult('bubble phase on c3');
+  setTimeout(function () {
+    var bc1 = c1.style.backgroundColor;
+    var bc2 = c2.style.backgroundColor;
+    var bc3 = c3.style.backgroundColor;
+    c1.style.backgroundColor = color;
+    setTimeout(function () {
+      c1.style.backgroundColor = bc1;
+      c2.style.backgroundColor = color;
+      setTimeout(function () {
+        c2.style.backgroundColor = bc2;
+        c3.style.backgroundColor = color;
+        setTimeout(function () {
+          c3.style.backgroundColor = bc3;
+          c2.style.backgroundColor = color;
+          setTimeout(function () {
+            c2.style.backgroundColor = bc2;
+            c1.style.backgroundColor = color;
+            setTimeout(function () {
+              c1.style.backgroundColor = bc1;
+            }, time);
+          }, time);
+        }, time);
+      }, time);
+    }, time);
+  }, time);
+});
+
+c4.addEventListener('click', function (evt) {
+  evt.stopPropagation();
+  showResult('bubble phase on c4');
+  setTimeout(function () {
+    var bc1 = c1.style.backgroundColor;
+    var bc2 = c2.style.backgroundColor;
+    var bc3 = c3.style.backgroundColor;
+    var bc4 = c4.style.backgroundColor;
+    c1.style.backgroundColor = color;
+    setTimeout(function () {
+      c1.style.backgroundColor = bc1;
+      c2.style.backgroundColor = color;
+      setTimeout(function () {
+        c2.style.backgroundColor = bc2;
+        c3.style.backgroundColor = color;
+        setTimeout(function () {
+          c3.style.backgroundColor = bc3;
+          c4.style.backgroundColor = color;
+          setTimeout(function () {
+            c4.style.backgroundColor = bc4;
+            c3.style.backgroundColor = color;
+            setTimeout(function () {
+              c3.style.backgroundColor = bc3;
+              c2.style.backgroundColor = color;
+              setTimeout(function () {
+                c2.style.backgroundColor = bc2;
+                c1.style.backgroundColor = color;
+                setTimeout(function () {
+                  c1.style.backgroundColor = bc1;
+                }, time);
+              }, time);
+            }, time);
+          }, time);
+        }, time);
+      }, time);
+    }, time);
+  }, time);
+});
