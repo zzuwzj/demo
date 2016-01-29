@@ -6,7 +6,7 @@ var Switcher = React.createClass({
       },
       clickHandler: function () {
         this.setState({
-          on: !this.props.on
+          on: !this.state.on
         });
       },
 
@@ -17,4 +17,9 @@ var Switcher = React.createClass({
             </button>
             );
       }
-})
+});
+
+ReactDOM.render(
+    <Switcher />,
+    document.getElementById('switch')
+);
