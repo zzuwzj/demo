@@ -6,29 +6,49 @@
     <title>Document</title>
 </head>
 <style>
+.emailContainer {
+    padding: 20px;
+    background-color: antiquewhite
+}
+
+.emailFormatted {
+    padding: 20px;
+    background-color: aquamarine
+}
+
 .keyWords {
     color: red;
+}
+
+.keyWords.customer {
+    font-weight: bold;
 }
 
 .hoverBox {
     position: absolute;
     display: none;
+    padding: 10px;
     width: 100px;
-    height: 200px;
-    background-color: wheat;
+    height: 150px;
+    background-color: thistle;
 }
 </style>
 
 <body>
+    <h2>Email content:</h2>
     <div class="emailContainer">
         <h1>Hi Peter,</h1>
         <br>
         <br>
         <p>I bought an item1 <em>yesterday</em>.</p>
+        <p>I want to buy item1, item2 from customer1.</p>
         <br>
         <br>
         <h3>Thanks</h3>
     </div>
+    <br>
+    <br>
+    <h2>Formatted email content:</h2>
     <div class="emailFormatted"></div>
     <div class="hoverBox">
         <div class="content"></div>
@@ -41,7 +61,10 @@ var $emailFormatted = $('.emailFormatted');
 var text = $('.emailContainer').text();
 console.log(text);
 
-var formattedText = $('.emailContainer').html().replace('item1', '<span class="keyWords">item1</span>');
+var regx = new RegExp('item1', 'g');
+var regx2 = new RegExp('item2', 'g');
+var regx3 = new RegExp('customer1', 'g');
+var formattedText = $('.emailContainer').html().replace(regx, '<span class="keyWords">item1</span>').replace(regx2, '<span class="keyWords">item2</span>').replace(regx3, '<span class="keyWords customer"><em>customer1</em></span>');
 $emailFormatted.html(formattedText);
 
 //hover
@@ -57,8 +80,9 @@ $('.keyWords').mouseover(function(event) {
         left: left,
         top: top
     });
+    var txt = $(this).text();
     $('.hoverBox').slideDown('fast', function() {
-        $('.content').text($(this).text());
+        $('.content').text(txt);
     });
 });
 
