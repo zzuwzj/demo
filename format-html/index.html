@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+.keyWords {
+    color: red;
+}
+
+.hoverBox {
+    position: absolute;
+    display: none;
+    width: 100px;
+    height: 200px;
+    background-color: wheat;
+}
+</style>
+
+<body>
+    <div class="emailContainer">
+        <h1>Hi Peter,</h1>
+        <br>
+        <br>
+        <p>I bought an item1 <em>yesterday</em>.</p>
+        <br>
+        <br>
+        <h3>Thanks</h3>
+    </div>
+    <div class="emailFormatted"></div>
+    <div class="hoverBox">
+        <div class="content"></div>
+    </div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+<script>
+var $emailContainer = $('.emailContainer');
+var $emailFormatted = $('.emailFormatted');
+var text = $('.emailContainer').text();
+console.log(text);
+
+var formattedText = $('.emailContainer').html().replace('item1', '<span class="keyWords">item1</span>');
+$emailFormatted.html(formattedText);
+
+//hover
+var offset = 15;
+$('.keyWords').mouseover(function(event) {
+    /* Act on the event */
+    $(this).css({
+        'color': 'gold'
+    });
+    var left = event.pageX + offset;
+    var top = event.pageY + offset;
+    $('.hoverBox').css({
+        left: left,
+        top: top
+    });
+    $('.hoverBox').slideDown('fast', function() {
+        $('.content').text($(this).text());
+    });
+});
+
+$('.keyWords').mouseout(function(event) {
+    /* Act on the event */
+    $(this).css({
+        'color': 'red'
+    });
+    var left = event.pageX + offset;
+    var top = event.pageY + offset;
+    $('.hoverBox').css({
+        left: left,
+        top: top
+    });
+    $('.hoverBox').hide();
+});
+</script>
+
+</html>
