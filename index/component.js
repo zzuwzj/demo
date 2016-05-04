@@ -31,7 +31,7 @@ var DemoWall = React.createClass({
         this.loadDemos();
     },
     render: function() {
-        var demos = this.props.demos.map(function(demo){
+        var demos = this.state.demos.map(function(demo){
             return (
                 <DemoCard src={demo.src} title={demo.title} description={demo.description} />
             );
@@ -40,7 +40,7 @@ var DemoWall = React.createClass({
             <div className="demos">
                 <h1>Demos</h1>
                 <ul>
-                    {this.state.demos}
+                    {demos}
                 </ul>
             </div>
         )
