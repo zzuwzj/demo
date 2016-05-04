@@ -5,14 +5,14 @@ var DemoWall = React.createClass({
     render: function() {
         var demos = this.props.demos.map(function(demo){
             return (
-                <DemoCard src={this.props.src} title={this.props.title} description={this.props.description} />
+                <DemoCard src={demo.src} title={demo.title} description={demo.description} />
             );
         });
         return (
             <div className="demos">
             <h1>Demos</h1>
             <ul>
-                {demos}
+                {this.props.demos}
             </ul>
             </div>
         )
