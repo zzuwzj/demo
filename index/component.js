@@ -8,18 +8,18 @@ var DemoWall = React.createClass({
                 <DemoCard src={this.props.src} title={this.props.title} description={this.props.description} />
             );
         });
-        return {
+        return (
             <ul>
                 {demos}
             </ul>
-        }
+        )
     }
 });
 
 
 var DemoCard = React.createClass({
     render: function() {
-        return {
+        return (
             <li>
                 <h3>
                     <a class="anchor" href="this.props.src" aria-hidden="true">
@@ -29,6 +29,6 @@ var DemoCard = React.createClass({
                 </h3>
                 <p>{this.props.description}</p>
             </li>
-        }
+        )
     }
 });
