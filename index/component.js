@@ -65,6 +65,6 @@ var DemoCard = React.createClass({
 });
 
 ReactDOM.render(
-  <DemoWall url='/index/data.json' />,
+  <DemoWall url='index/data.json' />,
   document.getElementById('container')
 );
