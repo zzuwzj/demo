@@ -7,7 +7,7 @@
         console.log(data);
         ReactDOM.render(
           <DemoWall products={data} />,
-          $('#container')
+          document.getElementById('container')
         );
     })
     .fail(function(err) {
