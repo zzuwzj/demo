@@ -3,7 +3,7 @@
  */
 var DemoWall = React.createClass({
     render: function() {
-        var demos = this.props.data.map(function(demo){
+        var demos = this.props.demos.map(function(demo){
             return (
                 <DemoCard src={this.props.src} title={this.props.title} description={this.props.description} />
             );
