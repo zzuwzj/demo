@@ -9,9 +9,12 @@ var DemoWall = React.createClass({
             );
         });
         return (
+            <div className="demos">
+            <h1>Demos</h1>
             <ul>
                 {demos}
             </ul>
+            </div>
         )
     }
 });
