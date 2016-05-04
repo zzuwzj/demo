@@ -1,6 +1,6 @@
 (function(){
     $.ajax({
-        url: 'data.json',
+        url: 'index/data.json',
         dataType: 'json'
     })
     .done(function(data) {
