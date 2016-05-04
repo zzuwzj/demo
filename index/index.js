@@ -7,7 +7,7 @@
         console.log(data);
         var demoData = JSON.parse(data.responseText);
         ReactDOM.render(
-          <DemoWall demos={demoData} />,
+          <DemoWall demos={demoData.demos} />,
           document.getElementById('container')
         );
     })
