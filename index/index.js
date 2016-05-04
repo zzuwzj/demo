@@ -1,5 +1,5 @@
 (function(){
-    $.$.ajax({
+    $.ajax({
         url: 'data.json',
         dataType: 'json'
     })
