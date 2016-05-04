@@ -5,8 +5,7 @@ var DemoWall = React.createClass({
     loadDemos: function() {
         $.ajax({
             url: this.props.url,
-            dataType: 'json',
-            data: {param1: 'value1'},
+            dataType: 'json'
         })
         .done(function(data) {
             console.log("success");
@@ -15,8 +14,9 @@ var DemoWall = React.createClass({
             var demoData = JSON.parse(data.responseText);
             this.setState({demos: demoData});
         })
-        .fail(function() {
+        .fail(function(err) {
             console.log("error");
+            console.log(err);
         })
         .always(function() {
             console.log("complete");
