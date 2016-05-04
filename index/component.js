@@ -2,6 +2,34 @@
  * index react component react js file
  */
 var DemoWall = React.createClass({
+    loadDemos: function() {
+        $.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            data: {param1: 'value1'},
+        })
+        .done(function(data) {
+            console.log("success");
+            console.log(data);
+            console.log(data.responseText);
+            var demoData = JSON.parse(data.responseText);
+            this.setState({demos: demoData});
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+    },
+    getInitialState: function() {
+        return {
+            demos:[]
+        };
+    },
+    componentDidMount: function() {
+        this.loadDemos();
+    },
     render: function() {
         var demos = this.props.demos.map(function(demo){
             return (
@@ -10,10 +38,10 @@ var DemoWall = React.createClass({
         });
         return (
             <div className="demos">
-            <h1>Demos</h1>
-            <ul>
-                {this.props.demos}
-            </ul>
+                <h1>Demos</h1>
+                <ul>
+                    {this.state.demos}
+                </ul>
             </div>
         )
     }
@@ -36,20 +64,7 @@ var DemoCard = React.createClass({
     }
 });
 
-var demoData = {demos:[
-    {
-        "src": "fullpage/index.html",
-        "title": "全屏滚动网站",
-        "description": "使用JQuery插件<code>fullpage.js</code>开发的全屏滚动网站"
-    }, {
-        "src": "bootstrap/index.html",
-        "title": "Responsive网站",
-        "description": "使用<a href=\"http: //getbootstrap.com/\">Bootstrap</a>开发的网站，可根据浏览器窗口大小自适应优化显示"
-    }]
-};
-console.log(demoData);
-
 ReactDOM.render(
-  <DemoWall demos={demoData.demos} />,
+  <DemoWall url='/index/data' />,
   document.getElementById('container')
 );
