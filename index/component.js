@@ -10,10 +10,8 @@ var DemoWall = React.createClass({
         .done(function(data) {
             console.log("success");
             console.log(data);
-            console.log(data.responseText);
-            var demoData = JSON.parse(data.responseText);
-            this.setState({demos: demoData});
-        })
+            this.setState({demos: data.demos});
+        }.bind(this))
         .fail(function(err) {
             console.log("error");
             console.log(err);
@@ -31,18 +29,16 @@ var DemoWall = React.createClass({
         this.loadDemos();
     },
     render: function() {
+        console.log('this.state.demos:'+this.state.demos);
         var demos = this.state.demos.map(function(demo){
             return (
                 <DemoCard src={demo.src} title={demo.title} description={demo.description} />
             );
         });
         return (
-            <div className="demos">
-                <h1>Demos</h1>
-                <ul>
-                    {demos}
-                </ul>
-            </div>
+            <ul>
+                {demos}
+            </ul>
         )
     }
 });
@@ -58,7 +54,7 @@ var DemoCard = React.createClass({
                         {this.props.title}
                     </a>
                 </h3>
-                <p>{this.props.description}</p>
+                <p dangerouslySetInnerHTML={{__html: this.props.description}}></p>
             </li>
         )
     }
