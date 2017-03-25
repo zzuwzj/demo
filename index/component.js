@@ -49,7 +49,7 @@ var DemoCard = React.createClass({
         return (
             <li>
                 <h3>
-                    <a class="anchor" href="this.props.src" aria-hidden="true">
+                    <a class="anchor" href={this.props.src} aria-hidden="true">
                         <span class="octicon octicon-link"></span>
                         {this.props.title}
                     </a>
